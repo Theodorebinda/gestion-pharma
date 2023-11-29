@@ -1,9 +1,13 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import './index.css'
-import Login from './components/Login.jsx'
 import {createBrowserRouter, RouterProvider} from 'react-router-dom';
-import Home from './components/home.jsx'
+import Login from './pages/Login.jsx'
+import SingleProduct from './pages/SingleProduct.jsx'
+import About from './pages/About.jsx';
+import Home from './pages/home.jsx';
+import ProductsList from './pages/productList.jsx';
+import Products from './components/Products.jsx';
 
 const router = createBrowserRouter(
   [
@@ -12,20 +16,34 @@ const router = createBrowserRouter(
       element: <Login />
     },
     {
-      path: "/Products",
-      element: <div><h1>Products</h1></div>
+      path: "/products",
+      element: <ProductsList/>
     },
     {
-      path: "/SingleProduct",
-      element: <div><h1>SingleProduct</h1></div>
+      path: "/product/1",
+      element: <SingleProduct />
     },
     {
-      path: "/A propos",
-      element: <div><h1>A propos</h1></div>
+      path: "/about",
+      element: <About />
     },
     {
       path: "/home",
-      element: <Home/>
+      element: <Home />
+    },
+    {
+      path: "/products",
+      element: <Products />,
+      children:[
+        {
+          path: "",
+          element:<ProductsList />
+        },
+        {
+          path:":id",
+          element: <SingleProduct />
+        }
+      ]
     }
   ]
 )
