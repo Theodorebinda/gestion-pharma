@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import ProductService from "../models/services/ProductService";
 import ProductPreview from "../components/productPreview";
+import NavBar from "../components/navigation"
 
 function SingleProduct() {
     const {id} = useParams();
@@ -8,7 +9,13 @@ function SingleProduct() {
     const product = data.find((e) => e.id === id);
     return (
         <>
-            <ProductPreview product={product} seeMore={true}></ProductPreview>
+             <nav>
+                <NavBar />
+            </nav>
+            <div>
+                <ProductPreview product={product} seeMore={true}></ProductPreview>
+            </div>
+            
         </>
     )
 }

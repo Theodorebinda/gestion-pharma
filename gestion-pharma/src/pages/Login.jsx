@@ -9,8 +9,8 @@ function Login(){
     return (
         <div>
             <h1>Login Page</h1>
-            <button  onClick={() => handleClick("/Products")}>Products</button>
-            <button  onClick={() => handleClick("/home")}>Home</button>
+            <input type="text" />
+            <button  onClick={() => handleClick("/Products")}>Connection</button>
         </div>
 
         );
